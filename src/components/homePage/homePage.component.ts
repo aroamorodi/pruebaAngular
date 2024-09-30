@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CabeceraComponent } from '../../shared/cabecera/cabecera.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
+import { ListaUsuariosComponent } from '../listaUsuarios/listaUsuarios.component';
 
 @Component({
   selector: 'app-home-page',
@@ -9,7 +10,8 @@ import { FooterComponent } from '../../shared/footer/footer.component';
   imports: [
     CommonModule,
     CabeceraComponent,
-    FooterComponent
+    FooterComponent,
+    ListaUsuariosComponent
   ],
   templateUrl: './homePage.component.html',
   styleUrl: './homePage.component.css',

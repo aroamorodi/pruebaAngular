@@ -1,3 +1,9 @@
 :host {
   display: block;
 }
+.footer {
+  position: fixed; /* Fija el footer en la parte inferior */
+  bottom: 0; /* Posición al fondo */
+  left: 0; /* Alineado a la izquierda */
+  right: 0; /* Alineado a la derecha */
+}
