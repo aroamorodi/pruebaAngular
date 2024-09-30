@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class GitHubServiceService {
 
-  private baseUrl = 'https://api.github.com/search/users';
+  private baseUrl = 'https://api.github.com/users';
 
   private _http = inject(HttpClient);
 
-  searchUsers(query: string): Observable<any> {
-    const url = `${this.baseUrl}?q=${query}`;
+  searchUsers(): Observable<any> {
+    const url = `${this.baseUrl}`;
     return this._http.get(url);
   }
 

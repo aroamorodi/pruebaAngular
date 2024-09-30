@@ -68,7 +68,7 @@ export class ListaUsuariosComponent implements OnInit{
     }
   ]
   users: any[] = [];
-  query: string = '';
+  // query: string = '';
 
   private githubService = inject(GitHubServiceService);
 
@@ -77,16 +77,12 @@ export class ListaUsuariosComponent implements OnInit{
     console.log(this.users)
   }
 
-
-
   search () {
-    if (this.query) {
-      this.githubService.searchUsers(this.query)
+    // if (this.query) {
+      this.githubService.searchUsers()
         .subscribe((data: any) => {
+          console.log('USUARIOS ', data)
           this.users = data.items
-          .sort((a: any, b: any) => a.login.localeCompare(b.login))
-          .slice(0, 10);
         })
-    }
   }
 }
