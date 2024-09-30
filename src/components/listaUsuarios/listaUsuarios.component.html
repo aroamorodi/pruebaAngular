@@ -1,1 +1,10 @@
-<p>listaUsuarios works!</p>,
+<div class="row">
+  @for (item of usuarios; track $index) {
+  <div class="col-md-6">
+    <mat-card appearance="outlined" class="mt-2">
+      <mat-card-title>{{item.nombre}}</mat-card-title>
+      <mat-card-content>{{item.telefono}}</mat-card-content>
+    </mat-card>
+  </div>
+  }
+</div>
