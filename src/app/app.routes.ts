@@ -5,6 +5,10 @@ export const routes: Routes = [ {
   loadComponent: () => import('../components/homePage/homePage.component').then(m => m.HomePageComponent),
 },
 {
+  path: 'user',
+  loadComponent: () => import('../components/Usuario/Usuario.component').then(m => m.UsuarioComponent)
+},
+{
   path: '',
   redirectTo: '/home',
   pathMatch: 'full'

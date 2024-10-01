@@ -5,6 +5,7 @@ import { GitHubServiceService } from '../../services/gitHubService.service';
 import { User } from '../../interfaces/User';
 import { catchError, map } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { Router } from '@angular/router';
 // import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -22,6 +23,7 @@ export class ListaUsuariosComponent implements OnInit {
   usuarios: User[] = [];
 
   private githubService = inject(GitHubServiceService);
+  private router = inject(Router);
 
   ngOnInit(): void {
     // this.search()
@@ -53,6 +55,6 @@ export class ListaUsuariosComponent implements OnInit {
   } */
 
   onCardClick () {
-    console.log('Estoy apretando el boton')
+    this.router.navigate(['/user']);
   }
 }
