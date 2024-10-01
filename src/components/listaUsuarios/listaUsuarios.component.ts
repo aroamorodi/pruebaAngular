@@ -5,7 +5,7 @@ import { GitHubServiceService } from '../../services/gitHubService.service';
 import { User } from '../../interfaces/User';
 import { catchError, map } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 // import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -13,7 +13,8 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [
     CommonModule,
-    MatCardModule
+    MatCardModule,
+    RouterModule
   ],
   templateUrl: './listaUsuarios.component.html',
   styleUrl: './listaUsuarios.component.css',
@@ -55,6 +56,7 @@ export class ListaUsuariosComponent implements OnInit {
   } */
 
   onCardClick () {
-    this.router.navigate(['/user']);
+    // this.router.navigate(['/user']);
+    console.log('TODO')
   }
 }
