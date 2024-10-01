@@ -2,9 +2,15 @@
     <!-- Navbar content -->
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Usuarios</a>
-      <form class="d-flex ms-auto" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      <form
+        class="d-flex ms-auto" role="search"
+        [formGroup]="form">
+        <input
+          formControlName="busqueda"
+          class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success"
+          type="submit"
+          [disabled]="form.invalid">Buscar</button>
       </form>
     </div>
 </nav>
