@@ -1,7 +1,8 @@
 <div class="row">
   @for (user of usuarios; track user.id) {
   <div class="col-md-6">
-    <mat-card appearance="outlined" class="mt-2">
+    <mat-card appearance="outlined" class="mt-2"
+      (click)="onCardClick()">
       <mat-card-title>{{user.login}}</mat-card-title>
       <mat-card-content>{{user.id}}</mat-card-content>
     </mat-card>
