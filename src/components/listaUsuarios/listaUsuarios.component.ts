@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { GitHubServiceService } from '../../services/gitHubService.service';
 import { User } from '../../interfaces/User';
 import { catchError, map } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { Router, RouterModule } from '@angular/router';
-// import { HttpClient } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -18,45 +18,24 @@ import { Router, RouterModule } from '@angular/router';
   ],
   templateUrl: './listaUsuarios.component.html',
   styleUrl: './listaUsuarios.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListaUsuariosComponent implements OnInit {
+export class ListaUsuariosComponent implements OnInit, AfterViewInit {
   usuarios: User[] = [];
 
   private githubService = inject(GitHubServiceService);
-  private router = inject(Router);
 
   ngOnInit(): void {
-    // this.search()
+  }
 
+  ngAfterViewInit() {
     this.githubService.searchUsers()
       .pipe(
-        map((data: User[]) => {
-          // Ordenar los usuarios por el campo 'login'
-          return data.sort((a, b) => a.login.localeCompare(b.login));
-        }),
-        catchError(error => {
-          console.error('Error al obtener usuarios', error);
-          return of([]); // Devuelve un arreglo vacío en caso de error
-        })
+        map((data: User[]) => data.sort((a, b) => a.login.localeCompare(b.login))),
+        catchError(error => of(error))
       )
       .subscribe((data: User[]) => {
         console.log('USUARIOS ', data)
         this.usuarios = data
       })
-  }
-
-  /* search () {
-    // if (this.query) {
-      this.githubService.searchUsers()
-        .subscribe((data: any) => {
-          console.log('USUARIOS ', data)
-          this.users = data
-        })
-  } */
-
-  onCardClick () {
-    // this.router.navigate(['/user']);
-    console.log('TODO')
   }
 }

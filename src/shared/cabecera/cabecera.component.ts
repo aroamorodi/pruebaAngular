@@ -4,11 +4,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 @Component({
   selector: 'app-cabecera',
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   templateUrl: './cabecera.component.html',
   styleUrl: './cabecera.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CabeceraComponent { }

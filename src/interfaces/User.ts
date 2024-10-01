@@ -17,4 +17,19 @@ export interface User {
   received_events_url: string;
   type:                string;
   site_admin:          boolean;
+  name:                string;
+  company:             null;
+  blog:                string;
+  location:            string;
+  email:               null;
+  hireable:            null;
+  bio:                 null;
+  twitter_username:    null;
+  public_repos:        number;
+  public_gists:        number;
+  followers:           number;
+  following:           number;
+  created_at:          Date;
+  updated_at:          Date;
 }
+
