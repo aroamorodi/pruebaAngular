@@ -51,4 +51,8 @@ export class ListaUsuariosComponent implements OnInit {
           this.users = data
         })
   } */
+
+  onCardClick () {
+    console.log('Estoy apretando el boton')
+  }
 }
