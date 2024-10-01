@@ -6,6 +6,8 @@ import { switchMap } from 'rxjs';
 import { User } from '../../interfaces/User';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCardModule } from '@angular/material/card';
+
 
 @Component({
   selector: 'app-usuario',
@@ -13,11 +15,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   imports: [
     CommonModule,
     MatGridListModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatCardModule
   ],
   templateUrl: './Usuario.component.html',
   styleUrl: './Usuario.component.css',
-  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UsuarioComponent implements OnInit {
   user: User | null = null;
@@ -31,11 +33,8 @@ export class UsuarioComponent implements OnInit {
         .pipe(
           switchMap(({ id }) => this.gitService.searchUserById(id)) //tomar los params
         ).subscribe((user?: User) => {
-          debugger
           if (!user) return this.router.navigate(['/home']);
-
           this.user = user;
-          console.log(this.user)
           return
         })
     }, 4000)
