@@ -2,7 +2,9 @@
   @for (user of usuarios; track user.id) {
   <div class="col-md-6">
     <mat-card appearance="outlined" class="mt-2 pt-1 text-center">
-      <mat-card-title>{{user.login}}</mat-card-title>
+      <mat-card-title>
+        <i class="fas fa-user"></i>
+        {{user.login}}</mat-card-title>
       <mat-card-content>{{user.id}}</mat-card-content>
       <button class="boton btn btn-success" [routerLink]="['/user', user.id]">
         Ver mas
