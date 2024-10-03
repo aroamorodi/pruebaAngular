@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { cantBePertierra } from '../../validator/validators';
 
 @Component({
   selector: 'app-cabecera',
@@ -15,7 +16,7 @@ export class CabeceraComponent {
 
   constructor (private fb: FormBuilder){
     this.form = this.fb.group({
-      busqueda: ['', [Validators.required, Validators.minLength(4)]]
+      busqueda: ['', [Validators.required, Validators.minLength(4), cantBePertierra]]
     })
   }
 
