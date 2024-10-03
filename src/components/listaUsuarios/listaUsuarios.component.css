@@ -2,13 +2,11 @@
   display: block; /* Asegura que el contenedor ocupe el espacio */
 }
 
-.scrollable {
-  max-height: 10px;
-  overflow-y: auto;
-  border: 1px solid #ccc;
-  padding: 10px;
+.boton {
+  display: flex;
+  width: 15vh;
+  margin-left: 15px;
 }
-
-.tarjeta {
-  width: 100%;
+.mat-mdc-card {
+  height: 20vh;
 }
