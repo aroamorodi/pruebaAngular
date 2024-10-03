@@ -9,6 +9,10 @@ export const routes: Routes = [ {
   loadComponent: () => import('../components/Usuario/Usuario.component').then(m => m.UsuarioComponent)
 },
 {
+  path: 'error',
+  loadComponent: () => import('../components/Errores/Errores.component').then(m => m.ErroresComponent)
+},
+{
   path: '',
   redirectTo: '/home',
   pathMatch: 'full'

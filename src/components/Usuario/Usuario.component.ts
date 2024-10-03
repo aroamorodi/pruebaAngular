@@ -33,7 +33,7 @@ export class UsuarioComponent implements OnInit {
         .pipe(
           switchMap(({ id }) => this.gitService.searchUserById(id)) //tomar los params
         ).subscribe((user?: User) => {
-          if (!user) return this.router.navigate(['/home']);
+          if (!user) return this.router.navigate(['/error']);
           this.user = user;
           return
         })
