@@ -1,4 +1,4 @@
-<form class="pt-2 mt-3"
+<form class="pt-2 mt-3 d-flex"
   [formGroup]="form"
   (ngSubmit)="onSubmit()">
   <input
@@ -16,4 +16,7 @@
   </div>
   }
 </div>
+} @else {
+  <p class="text-muted">Aún no has realizado ninguna búsqueda.</p>
+  <p>Ingresa un nombre de usuario y presiona "Buscar" para empezar.</p>
 }
