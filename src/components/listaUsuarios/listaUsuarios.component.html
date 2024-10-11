@@ -1,15 +1,19 @@
+<form class="pt-2 mt-3"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()">
+  <input
+    formControlName="busqueda"
+    class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success"
+    type="submit"
+    [disabled]="form.invalid">Buscar</button>
+</form>
+@if(usuarios.length > 0) {
 <div class="row">
   @for (user of usuarios; track user.id) {
-  <div class="col-md-6">
-    <mat-card appearance="outlined" class="mt-2 pt-1 text-center">
-      <mat-card-title>
-        <i class="fas fa-user"></i>
-        {{user.login}}</mat-card-title>
-      <mat-card-content>{{user.id}}</mat-card-content>
-      <button class="boton btn btn-success" [routerLink]="['/user', user.id]">
-        Ver mas
-      </button>
-    </mat-card>
+  <div class="col-md-6 pt-2">
+    <app-user [user]="user"></app-user>
   </div>
   }
 </div>
+}

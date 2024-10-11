@@ -25,4 +25,9 @@ export class GitHubServiceService {
       )
   }
 
+  searchUsersParam (param: string): Observable<User[]> {
+    const url =`${this.baseUrl}?q=${param}&per_page=10`
+    return this._http.get<User[]>(url);
+  }
+
 }
