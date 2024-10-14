@@ -7,6 +7,7 @@ import { of } from 'rxjs';
 import { CardComponent } from '../card/card.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { cantBePertierra } from '../../validator/validators';
+import { BusquedaUser } from '../../interfaces/BusquedaUser';
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -19,7 +20,7 @@ import { cantBePertierra } from '../../validator/validators';
   templateUrl: './listaUsuarios.component.html',
   styleUrl: './listaUsuarios.component.css',
 })
-export class ListaUsuariosComponent implements OnInit {
+export class ListaUsuariosComponent {
   usuarios: User[] = [];
 
   form: FormGroup;
@@ -30,31 +31,14 @@ export class ListaUsuariosComponent implements OnInit {
       busqueda: ['', [Validators.required, Validators.minLength(4), cantBePertierra]]
     })
   }
-  ngOnInit(): void {
-  }
-
-  /* ngAfterViewInit() {
-    this.githubService.searchUsers()
-      .pipe(
-        map((data: User[]) => data.sort((a, b) => a.login.localeCompare(b.login))),
-        catchError(error => of(error))
-      )
-      .subscribe((data: User[]) => {
-        this.usuarios = data
-      })
-  } */
 
   buscar (value: string) {
-    console.log('Entra aquii')
     this.githubService.searchUsersParam(value)
       .pipe(
-        map((data: User[]) => data.sort((a, b) => a.login.localeCompare(b.login))),
+        map(({ items }) => items.sort((a, b) => a.login.localeCompare(b.login))),
         catchError(error => of(error))
       )
-      .subscribe((data: User[]) => {
-        console.log('USUARIOS ', data)
-        this.usuarios = data
-      })
+      .subscribe((data) => this.usuarios = data)
   }
   onSubmit () {
     if (this.form.valid) {
