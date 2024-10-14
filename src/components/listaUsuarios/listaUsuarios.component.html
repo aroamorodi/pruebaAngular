@@ -8,6 +8,19 @@
     type="submit"
     [disabled]="form.invalid">Buscar</button>
 </form>
+@if(form.get('busqueda')?.touched && form.get('busqueda')?.invalid){
+  <div>
+    @if(form.get('busqueda')?.errors?.['required']){
+      <small class="form-text text-danger">El campo de busqueda es requerido</small>
+    }
+    @if(form.get('busqueda')?.errors?.['minlength']){
+      <small class="form-text text-danger">El campo de busqueda debe tener al menos 4 caracteres</small>
+    }
+    @if(form.get('busqueda')?.errors?.['noPertierra']){
+      <small class="form-text text-danger">El campo de busqueda no puede ser Pertierra</small>
+    }
+  </div>
+}
 @if(usuarios.length > 0) {
 <div class="row">
   @for (user of usuarios; track user.id) {

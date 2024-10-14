@@ -1,4 +1,4 @@
-import { FormControl } from "@angular/forms";
+import { FormControl, FormGroup } from "@angular/forms";
 
 export const cantBePertierra = (control: FormControl) => {
     const value: string = control.value.trim().toLowerCase();
@@ -12,3 +12,7 @@ export const cantBePertierra = (control: FormControl) => {
     
     return null;
 }
+
+ export function isValidField( form: FormGroup, field: string ) {
+    return form.controls[field].errors && form.controls[field].touched;
+  }

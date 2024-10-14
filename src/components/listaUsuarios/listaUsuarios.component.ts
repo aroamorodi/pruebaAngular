@@ -6,7 +6,7 @@ import { catchError, map } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { CardComponent } from '../card/card.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { cantBePertierra } from '../../validator/validators';
+import { cantBePertierra, isValidField } from '../../validator/validators';
 import { BusquedaUser } from '../../interfaces/BusquedaUser';
 
 @Component({
@@ -37,6 +37,10 @@ export class ListaUsuariosComponent implements OnInit{
     if (savedUsers) {
       this.usuarios = JSON.parse(savedUsers)
     }
+  }
+
+  isValidField( field: string ) {
+    return isValidField(this.form, field);
   }
 
   buscar (value: string) {
