@@ -29,6 +29,7 @@ export class UsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() => {
+      console.log(this.activateRoute.params)
       this.activateRoute.params
         .pipe(
           switchMap(({ id }) => this.gitService.searchUserById(id)) //tomar los params

@@ -20,7 +20,7 @@ import { BusquedaUser } from '../../interfaces/BusquedaUser';
   templateUrl: './listaUsuarios.component.html',
   styleUrl: './listaUsuarios.component.css',
 })
-export class ListaUsuariosComponent {
+export class ListaUsuariosComponent implements OnInit{
   usuarios: User[] = [];
 
   form: FormGroup;
@@ -31,6 +31,13 @@ export class ListaUsuariosComponent {
       busqueda: ['', [Validators.required, Validators.minLength(4), cantBePertierra]]
     })
   }
+  ngOnInit(): void {
+    const savedUsers = localStorage.getItem('usuarios');
+
+    if (savedUsers) {
+      this.usuarios = JSON.parse(savedUsers)
+    }
+  }
 
   buscar (value: string) {
     this.githubService.searchUsersParam(value)
@@ -38,7 +45,10 @@ export class ListaUsuariosComponent {
         map(({ items }) => items.sort((a, b) => a.login.localeCompare(b.login))),
         catchError(error => of(error))
       )
-      .subscribe((data) => this.usuarios = data)
+      .subscribe((data) => {
+        this.usuarios = data
+        localStorage.setItem('usuarios', JSON.stringify(data))
+      })
   }
   onSubmit () {
     if (this.form.valid) {
