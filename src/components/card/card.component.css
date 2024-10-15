@@ -1,12 +1,7 @@
 :host {
   display: block;
 }
-.redondo {
-  width: 150px;          /* Ajusta el ancho de la imagen */
-  height: 150px;         /* Ajusta la altura de la imagen */
-  border-radius: 50%;    /* Hace que la imagen sea redonda */
-  /*object-fit: cover;     /* Ajusta la imagen dentro del contenedor */
-}
+
 .mat-card {
   display: flex;
   flex-direction: column;
@@ -14,7 +9,9 @@
 }
 
 .mat-mdc-card-image {
-  border-radius: 50%;
+  border-radius: 50% !important;
+  width: 150px;          /* Ajusta el ancho de la imagen */
+  height: 150px;
 }
 
 mat-card-actions {
