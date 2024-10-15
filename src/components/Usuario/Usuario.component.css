@@ -1,4 +1,16 @@
 :host {
   display: block;
 }
-
+.imagen {
+  width: 50%;
+  height: 50%;
+}
+.titulo {
+  display: flex;
+  justify-content: center;
+  font-family: fantasy;
+  color: dimgrey;
+}
+.texto {
+  font-weight: bold;
+}

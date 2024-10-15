@@ -23,6 +23,7 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class UsuarioComponent implements OnInit {
   user: User | null = null;
+  login: String = '';
   private gitService = inject(GitHubServiceService);
   private activateRoute = inject(ActivatedRoute);
   private router = inject(Router)
