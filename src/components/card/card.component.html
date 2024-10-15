@@ -1,16 +1,18 @@
-<mat-card class="mt-2 pt-1 text-center">
-    <mat-card-header>
+<mat-card class="mt-2 pt-1">
+    <mat-card-header class="d-flex justify-content-center">
       <mat-card-title>
         <i class="fas fa-user"></i>
         {{user.login}}
       </mat-card-title>
       <mat-card-subtitle>{{user.id}}</mat-card-subtitle>
     </mat-card-header>
-    <img 
-      [src]="user.avatar_url" 
-      [alt]="user.name" 
-      mat-card-image 
-      class="redondo mb-2" />
+    <mat-card-content class="d-flex justify-content-center">
+      <img 
+        [src]="user.avatar_url" 
+        [alt]="user.name" 
+        mat-card-image 
+        class="redondo mb-2" />
+    </mat-card-content>
     <mat-card-actions>
       <button class="boton btn btn-success" [routerLink]="['/user', user.id]">
         Ver mas

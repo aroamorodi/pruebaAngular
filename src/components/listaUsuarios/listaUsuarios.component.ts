@@ -62,4 +62,10 @@ export class ListaUsuariosComponent implements OnInit{
       console.log('Formulario inválido');
     }
   }
+
+  clear () {
+    localStorage.clear();
+    this.usuarios = [];
+    this.form.get('busqueda')?.reset();
+  }
 }

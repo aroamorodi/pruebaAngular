@@ -7,3 +7,17 @@
   border-radius: 50%;    /* Hace que la imagen sea redonda */
   /*object-fit: cover;     /* Ajusta la imagen dentro del contenedor */
 }
+.mat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mat-mdc-card-image {
+  border-radius: 50%;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+}
