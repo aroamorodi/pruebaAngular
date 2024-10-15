@@ -1,3 +1,23 @@
 :host {
   display: block; /* Asegura que el contenedor ocupe el espacio */
 }
+section {
+  display: flex;
+  justify-content: center;
+  height: 430px;
+}
+
+section img {
+  width: 0px;
+  flex-grow: 1; /*Ocupar el espacio que pueda */
+  object-fit: cover;
+  opacity: .8;
+  transition: .5s ease;
+}
+
+section img:hover {
+  cursor: pointer;
+  width: 300px;
+  opacity: 1;
+  filter: contrast(120%);
+}
