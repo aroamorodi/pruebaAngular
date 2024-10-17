@@ -7,11 +7,13 @@
       <mat-card-subtitle>{{user.id}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content class="d-flex justify-content-center">
-      <img 
-        [src]="user.avatar_url" 
-        [alt]="user.name" 
-        mat-card-image 
-        class="redondo mb-2" />
+      <div class="imagen">
+        <img 
+          [src]="user.avatar_url" 
+          [alt]="user.name" 
+          mat-card-image 
+          class="zoom mb-2" />
+      </div>
     </mat-card-content>
     <mat-card-actions>
       <button class="btn btn-outline-info" [routerLink]="['/user', user.id]">
