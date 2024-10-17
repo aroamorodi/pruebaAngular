@@ -1,48 +1,51 @@
 <ng-template #divLoading>
-  <mat-grid-list cols="1">
-    <mat-grid-tile>
-      <mat-spinner></mat-spinner>
-    </mat-grid-tile>
-  </mat-grid-list>
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <mat-spinner diameter="70" strokeWidth="2" color="accent"></mat-spinner>
+  </div>
 </ng-template>
 
 <div *ngIf="user; else divLoading" class="grid p-2">
     <h3 class="titulo">Detalles del usuario con id: {{ user.id }}</h3>
-    <div class="pt-2 mt-3 d-flex">
-      <img [src]="user.avatar_url" [alt]="user.name" class="mb-2 me-5 imagen" />
-      <div class="mt-6">
-        <p>
-          <label class="texto">Nombre</label>
-          @if(user.name !== null) {
-            <label>: {{user.name}}</label>
-          }@else {
-            <label>: No sabemos el nombre del usuario</label>
-          }
-        </p>
-        <p>
-          <label class="texto">Email</label>
-          @if(user.email !== null) {
-            <label>: {{user.email}}</label>
-          }@else {
-            <label>: No sabemos el email del usuario</label>
-          }
-        </p>
-        <p>
-          <label class="texto">Compañía</label>
-          @if(user.company !== null) {
-            <label>: {{user.company}}</label>
-          }@else {
-            <label>: No sabemos la compañía del usuario</label>
-          }
-        </p>
-        <p>
-          <label class="texto">Creado en la fecha</label>
-          @if(user.created_at !== null) {
-            <label>: {{user.created_at | date: 'dd/MM/yyyy'}}</label>
-          }@else {
-            <label>: No sabemos la fecha de creación del usuario</label>
-          }
-        </p>
+    <div class="d-flex text-center">
+      <div class="mb-2 me-5 imagen">
+      <img [src]="user.avatar_url" [alt]="user.name" class="zoom"/>
+    </div>
+      <div class="mt-6 d-flex contenido">
+        <div class="borde">
+          <p>
+            <label class="texto">Nombre: </label>
+            @if(user.name !== null) {
+              <label>{{user.name}}</label>
+            }@else {
+              <label>No sabemos el nombre del usuario</label>
+            }
+          </p>
+          <p>
+            <label class="texto">Email: </label>
+            @if(user.email !== null) {
+              <label>{{user.email}}</label>
+            }@else {
+              <label>No sabemos el email del usuario</label>
+            }
+          </p>
+          <p>
+            <label class="texto">Compañía:</label>
+            @if(user.company !== null) {
+              <label>{{user.company}}</label>
+            }@else {
+              <label>No sabemos la compañía del usuario</label>
+            }
+          </p>
+          <p>
+            <label class="texto">Creado en la fecha:</label>
+            @if(user.created_at !== null) {
+              <label>{{user.created_at | date: 'dd/MM/yyyy'}}</label>
+            }@else {
+              <label>No sabemos la fecha de creación del usuario</label>
+            }
+          </p>
+        </div>
+        
       </div>
     </div>
     

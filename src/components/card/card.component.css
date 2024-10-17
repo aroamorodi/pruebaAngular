@@ -18,3 +18,25 @@ mat-card-actions {
   display: flex;
   justify-content: center;
 }
+
+mat-card-title {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+mat-card-title i {
+  font-weight: bold;
+  color: aquamarine;
+}
+
+mat-card-subtitle {
+  font-style: italic;
+  font-size: small;
+  color: slategray;
+  font-weight: lighter;
+}
+
+.btn-outline-info {
+  --bs-btn-hover-color: white;
+  --bs-btn-hover-bg: aquamarine;
+}

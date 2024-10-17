@@ -21,15 +21,13 @@
     }
   </div>
 }
-@if(this.usuarios.length > 0) {
-  <button 
-  class="btn btn-danger mt-3"
-  (click)="clear()">Limpiar búsqueda</button>
-}
 @if(usuarios.length > 0) {
+<button 
+  class="btn btn-outline-danger mt-3"
+  (click)="clear()">Limpiar búsqueda</button>
 <div class="row">
   @for (user of usuarios; track user.id) {
-  <div class="col-md-6 pt-2">
+  <div class="col-md-6 pt-2 mb-3">
     <app-user [user]="user"></app-user>
   </div>
   }
