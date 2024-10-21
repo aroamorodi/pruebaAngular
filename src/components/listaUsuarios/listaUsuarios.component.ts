@@ -55,6 +55,7 @@ export class ListaUsuariosComponent implements OnInit{
       })
   }
   onSubmit () {
+    this.form.markAllAsTouched();
     if (this.form.valid) {
       const valorBusqueda = this.form.get('busqueda')?.value;
       this.buscar(valorBusqueda);

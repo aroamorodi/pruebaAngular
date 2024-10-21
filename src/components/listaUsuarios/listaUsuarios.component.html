@@ -6,17 +6,17 @@
     class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
   <button class="btn btn-success"
     type="submit"
-    [disabled]="form.invalid">Buscar</button>
+    >Buscar</button>
 </form>
 @if(form.get('busqueda')?.touched && form.get('busqueda')?.invalid){
   <div>
-    @if(form.get('busqueda')?.errors?.['required']){
+    @if(form.get('busqueda')?.errors?.['required'] && form.get('busqueda')?.touched){
       <small class="form-text text-danger">El campo de busqueda es requerido</small>
     }
-    @if(form.get('busqueda')?.errors?.['minlength']){
+    @if(form.get('busqueda')?.errors?.['minlength']&& form.get('busqueda')?.touched){
       <small class="form-text text-danger">El campo de busqueda debe tener al menos 4 caracteres</small>
     }
-    @if(form.get('busqueda')?.errors?.['noPertierra']){
+    @if(form.get('busqueda')?.errors?.['noPertierra']&& form.get('busqueda')?.touched){
       <small class="form-text text-danger">El campo de busqueda no puede ser Pertierra</small>
     }
   </div>
