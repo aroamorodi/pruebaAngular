@@ -1,11 +1,12 @@
 :host {
-  display: flex;
+  display: block;
+  /* display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-color: #f8f9fa;
+  background-color: #f8f9fa; */
 }
 .error-container {
+  flex-grow: 1;
   text-align: center;
 }
 .error-code {
@@ -19,4 +20,9 @@
 }
 .home-btn {
   margin-top: 20px;
+}
+
+img {
+  width: min-content;
+  height: 20vh;
 }
